@@ -1,0 +1,39 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+
+.sidebarStyling {
+  @include m.flexBox(column, start, start, 1rem);
+  position: relative;
+  background: $white-color;
+  height: 100vh;
+  width: 20vw;
+  padding: 1rem 0rem 0rem 1rem;
+
+  &.openStyling {
+    width: 35vw;
+
+    img {
+      width: 30%;
+    }
+  }
+
+  .iconWrapper {
+    @include m.flexBox(row, space-between, center, 1rem);
+  }
+
+  .sidebarProfile {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%);
+
+    .iconWrapper {
+      padding-right: 3rem;
+      gap: 2rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

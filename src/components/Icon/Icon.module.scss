@@ -1,0 +1,7 @@
+.iconStyling {
+  width: 100%;
+
+  &.flip {
+    transform: rotate(180deg);
+  }
+}

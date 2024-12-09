@@ -1,15 +1,23 @@
 @use "../../styles/mixins" as m;
 @use "../../styles/variables" as *;
 
+.hideSidebar {
+  display: none;
+}
+
 .sidebarStyling {
   @include m.flexBox(column, start, start, 1rem);
   position: absolute;
   top: 0;
   background: $white-color;
   height: 100vh;
-  width: 20vw;
+  width: 11vw;
   padding: 1rem 0rem 0rem 1rem;
   border-right: 1px solid #00000025;
+
+  .closeButton {
+    margin-left: 0.5rem;
+  }
 
   &.openStyling {
     width: 35vw;

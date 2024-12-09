@@ -4,4 +4,15 @@
   &.flip {
     transform: rotate(180deg);
   }
+
+  &.acountLink {
+    width: 100%;
+  }
+
+  &.small {
+    width: 10%;
+    position: absolute;
+    top: 10%;
+    right: 4%;
+  }
 }

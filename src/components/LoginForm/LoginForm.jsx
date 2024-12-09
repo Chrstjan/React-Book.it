@@ -3,6 +3,8 @@ import s from "./LoginForm.module.scss";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { Link } from "react-router-dom";
+import { Icon } from "../Icon/Icon";
 
 export const LoginForm = ({ headerText, subText }) => {
   const { user, loginUser } = useContext(UserContext);
@@ -58,8 +60,8 @@ export const LoginForm = ({ headerText, subText }) => {
           <p>{subText}</p>
         </header>
         <div>
-          <label htmlFor="email">Email</label>
-          <span>
+          <label htmlFor="email">Username / email</label>
+          <span className={s.inputContainer}>
             <input
               {...register("email", {
                 required: "Email is required",
@@ -76,11 +78,12 @@ export const LoginForm = ({ headerText, subText }) => {
               name="email"
               placeholder="admin@mymail.com"
             />
+            <Icon src="./User.svg" type="small" />
             {errors.email ? <span>{errors.email.message}</span> : null}
           </span>
 
           <label htmlFor="password">Password</label>
-          <span>
+          <span className={s.inputContainer}>
             <input
               {...register("password", {
                 required: "password is required",
@@ -97,11 +100,16 @@ export const LoginForm = ({ headerText, subText }) => {
               name="password"
               placeholder="********"
             />
+            <Icon src="./Lock.svg" type="small" />
             {errors.password ? <span>{errors.password.message}</span> : null}
           </span>
         </div>
-
-        <input type="submit" value="Sign in" />
+        <div className={s.formFooter}>
+          <p>
+            No user account? <Link to="/signup">Click here</Link> to sign up
+          </p>
+          <input type="submit" value="Sign in" />
+        </div>
       </fieldset>
     </form>
   );

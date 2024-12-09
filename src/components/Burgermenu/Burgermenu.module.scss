@@ -1,0 +1,17 @@
+@use "../../styles/variables" as *;
+
+.burgermenu {
+  display: block;
+  position: absolute;
+  top: 0.5%;
+  left: 0;
+
+  .barStyling {
+    display: block;
+    margin: 4px 8px;
+    width: 20px;
+    height: 6px;
+    background: $dark-color;
+    border-radius: 6px;
+  }
+}

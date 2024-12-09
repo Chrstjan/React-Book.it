@@ -3,7 +3,7 @@ import { Icon } from "../Icon/Icon";
 import s from "./Sidebar.module.scss";
 import { Link } from "react-router-dom";
 
-export const Sidebar = () => {
+export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openSidebar = () => {
@@ -11,7 +11,19 @@ export const Sidebar = () => {
   };
 
   return (
-    <div className={`${s.sidebarStyling} ${isOpen ? s.openStyling : ""}`}>
+    <div
+      className={`${isMenuOpen ? s.sidebarStyling : s.hideSidebar} ${
+        isOpen ? s.openStyling : ""
+      }`}
+    >
+      {isMenuOpen ? (
+        <p
+          className={s.closeButton}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          X
+        </p>
+      ) : null}
       <span>
         <span onClick={() => openSidebar()} className={s.iconWrapper}>
           {isOpen ? <p>Close</p> : null}
@@ -38,7 +50,9 @@ export const Sidebar = () => {
       <span className={s.sidebarProfile}>
         <span className={isOpen ? s.iconWrapper : ""}>
           {isOpen ? <p>Profile</p> : null}
-          <Icon src="./Test Account.svg" />
+          <Link to="/signin">
+            <Icon src="./Test Account.svg" />
+          </Link>
         </span>
       </span>
     </div>

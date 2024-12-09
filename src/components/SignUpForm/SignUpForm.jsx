@@ -1,12 +1,7 @@
 import { useForm } from "react-hook-form";
-import s from "./LoginForm.module.scss";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+import s from "./SignUpForm.module.scss";
 
-export const LoginForm = ({ headerText, subText }) => {
-  const { user, loginUser } = useContext(UserContext);
-
+export const SignUpForm = ({ headerText, subText }) => {
   const {
     register,
     handleSubmit,
@@ -17,16 +12,18 @@ export const LoginForm = ({ headerText, subText }) => {
 
   const handleFormSubmit = async (data) => {
     console.log(data);
-    const { email, password } = { ...data };
+    const { name, email, password, phone } = { ...data };
 
     const formData = {
+      name: name,
       email: email,
       password: password,
+      phone: phone,
     };
 
     console.log(formData);
 
-    const res = await fetch(`http://localhost:8081/sign-in`, {
+    const res = await fetch(`http://localhost:8081/sign-up`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,16 +37,7 @@ export const LoginForm = ({ headerText, subText }) => {
     }
     const userData = await res.json();
     console.log("User", userData);
-
-    if (userData) {
-      loginUser(userData);
-    }
   };
-
-  useEffect(() => {
-    console.log("User context:", user);
-  }, [user]);
-
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={s.formStyling}>
       <fieldset>
@@ -58,6 +46,27 @@ export const LoginForm = ({ headerText, subText }) => {
           <p>{subText}</p>
         </header>
         <div>
+          <label htmlFor="name">Name</label>
+          <span>
+            <input
+              {...register("name", {
+                required: "Name is required",
+                pattern: {
+                  message: "Invalid name format",
+                },
+                minLength: {
+                  value: 2,
+                  message: "Name must be at least 2 characters",
+                },
+              })}
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Peter Jackson"
+            />
+            {errors.name ? <span>{errors.name.message}</span> : null}
+          </span>
+
           <label htmlFor="email">Email</label>
           <span>
             <input
@@ -74,7 +83,7 @@ export const LoginForm = ({ headerText, subText }) => {
               type="email"
               id="email"
               name="email"
-              placeholder="admin@mymail.com"
+              placeholder="peter@mymail.com"
             />
             {errors.email ? <span>{errors.email.message}</span> : null}
           </span>
@@ -99,9 +108,30 @@ export const LoginForm = ({ headerText, subText }) => {
             />
             {errors.password ? <span>{errors.password.message}</span> : null}
           </span>
+
+          <label htmlFor="phone">Phone</label>
+          <span>
+            <input
+              {...register("phone", {
+                required: "phone is required",
+                pattern: {
+                  message: "Invalid phone format",
+                },
+                minLength: {
+                  value: 8,
+                  message: "phone must be at least 8 characters",
+                },
+              })}
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="+45 55322323"
+            />
+            {errors.phone ? <span>{errors.phone.message}</span> : null}
+          </span>
         </div>
 
-        <input type="submit" value="Sign in" />
+        <input type="submit" value="Sign up" />
       </fieldset>
     </form>
   );

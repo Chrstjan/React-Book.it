@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Icon } from "../Icon/Icon";
 import s from "./Sidebar.module.scss";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,9 @@ export const Sidebar = () => {
       <span className={s.sidebarIcons}>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Home</p> : null}
-          <Icon src="./Home.svg" />
+          <Link to="/">
+            <Icon src="./Home.svg" />
+          </Link>
         </span>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Add event</p> : null}

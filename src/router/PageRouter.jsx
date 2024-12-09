@@ -4,6 +4,7 @@ import { MainLayout } from "../Layouts/MainLayout";
 import { LandingPage } from "../pages/LandingPage";
 import { PageNotFound } from "../pages/PageNotFound";
 import { SignUpPage } from "../pages/SignUpPage";
+import { SignInPage } from "../pages/SignInPage";
 
 export const PageRouter = () => {
   return (
@@ -11,6 +12,7 @@ export const PageRouter = () => {
       <Route path={Paths.home} element={<MainLayout />}>
         <Route index element={<LandingPage />} />
         <Route path={Paths.signUp} element={<SignUpPage />} />
+        <Route path={Paths.signIn} element={<SignInPage />} />
         <Route path={Paths.pageNotFound} element={<PageNotFound />} />
       </Route>
     </Routes>

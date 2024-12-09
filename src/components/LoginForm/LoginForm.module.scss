@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as m;
+
+.formStyling {
+  @include m.flexBox(column, center, center, 1rem);
+
+  fieldset {
+    div {
+      @include m.flexBox(column, center, center, 1rem);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@use "../../styles/mixins" as m;
+
+.headerStyling {
+  @include m.flexBox(row, center, center, 1rem);
+  position: absolute;
+  top: 0;
+  right: 7%;
+
+  img {
+    width: 15%;
+  }
+}

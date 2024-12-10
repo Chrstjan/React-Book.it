@@ -40,7 +40,9 @@ export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
         </span>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Add event</p> : null}
-          <Icon src="./Plus.svg" />
+          <Link to="/add-event">
+            <Icon src="./Plus.svg" />
+          </Link>
         </span>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Settings</p> : null}

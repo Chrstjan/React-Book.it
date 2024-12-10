@@ -1,0 +1,40 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+  fieldset {
+    @extend %formFieldset;
+    gap: 0;
+
+    label {
+      align-self: flex-start;
+    }
+
+    .inputContainer {
+      @include m.flexBox(column, center, center, 1rem);
+      position: relative;
+      margin-bottom: 1.5rem;
+
+      input {
+        @extend %formInput;
+      }
+    }
+
+    textarea {
+      resize: none;
+      width: 52vw;
+      height: 10vh;
+      border: 2px solid $twenty-five-transparent;
+      border-radius: 4px;
+    }
+
+    .formFooter {
+      margin-top: 2rem;
+      input {
+        @extend %formSubmit;
+        color: $dark-color;
+      }
+    }
+  }
+}

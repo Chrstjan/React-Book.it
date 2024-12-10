@@ -1,3 +1,5 @@
+@use "../../styles/variables" as *;
+
 .iconStyling {
   width: 100%;
 
@@ -14,5 +16,16 @@
     position: absolute;
     top: 10%;
     right: 4%;
+  }
+
+  &.edit {
+    width: 6vw;
+    border-radius: 6px;
+    background: $salmon-color;
+    padding: 0.2rem 0.2rem;
+
+    &:first-of-type {
+      background: $blue-color;
+    }
   }
 }

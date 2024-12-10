@@ -6,6 +6,7 @@ import { PageNotFound } from "../pages/PageNotFound";
 import { SignUpPage } from "../pages/SignUpPage";
 import { SignInPage } from "../pages/SignInPage";
 import { AddEventPage } from "../pages/AddEventPage";
+import { EditEventPage } from "../pages/EditEventPage";
 
 export const PageRouter = () => {
   return (
@@ -15,6 +16,7 @@ export const PageRouter = () => {
         <Route path={Paths.signUp} element={<SignUpPage />} />
         <Route path={Paths.signIn} element={<SignInPage />} />
         <Route path={Paths.addEvent} element={<AddEventPage />} />
+        <Route path={Paths.editEvent} element={<EditEventPage />} />
         <Route path={Paths.pageNotFound} element={<PageNotFound />} />
       </Route>
     </Routes>

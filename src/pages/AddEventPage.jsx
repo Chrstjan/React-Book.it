@@ -6,7 +6,7 @@ export const AddEventPage = () => {
   return (
     <Wrapper>
       <PageHeader headerText="Add new event" />
-      <EventForm endpoint="create" />
+      <EventForm endpoint="create" method="POST" btnText="Add" />
     </Wrapper>
   );
 };

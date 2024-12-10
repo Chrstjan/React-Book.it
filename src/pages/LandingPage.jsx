@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Event } from "../components/Event/Event";
 
 export const LandingPage = () => {
   const { user } = useContext(UserContext);
@@ -11,6 +12,25 @@ export const LandingPage = () => {
 
   const handleMonthClick = () => {
     console.log("lol");
+  };
+
+  const handleDeleteTicket = async (ticketID) => {
+    if (user.accessToken) {
+      const res = await fetch(`http://localhost:8081/delete/${ticketID}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + user.accessToken,
+        },
+      });
+      if (!res.ok) {
+        console.error("Failed to delete");
+      } else {
+        console.log("Ticket deleted", res);
+        setEvents((prevEvents) =>
+          prevEvents.filter((event) => event.id !== ticketID)
+        );
+      }
+    }
   };
 
   useEffect(() => {
@@ -47,6 +67,9 @@ export const LandingPage = () => {
           <h2>Welcome Guest</h2>
         )}
         <Month text="Jan" action={() => handleMonthClick()} />
+        {events.length > 0 ? (
+          <Event data={events} action={handleDeleteTicket} />
+        ) : null}
       </Wrapper>
     </>
   );

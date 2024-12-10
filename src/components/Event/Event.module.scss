@@ -1,0 +1,28 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.eventContainer {
+  @include m.flexBox(row, space-between, center, 0.7rem);
+  margin: 0rem 1rem 0rem 4rem;
+  padding: 0rem 1.5rem 0rem 1rem;
+  background: $white-color;
+  box-shadow: 2px 1px 2px #000;
+
+  .event {
+    @include m.flexBox(row, center, center, 1rem);
+
+    p {
+      border-right: 1px solid #000;
+      padding-right: 0.5rem;
+
+      &:last-of-type {
+        border: 0;
+      }
+    }
+  }
+
+  .iconContainer {
+    @include m.flexBox(row, center, center, 0.5rem);
+  }
+}

@@ -1,11 +1,44 @@
 @use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
 
 .formStyling {
   @include m.flexBox(column, center, center, 1rem);
+  margin: 0rem 1rem;
 
   fieldset {
+    @extend %formFieldset;
+
     div {
       @include m.flexBox(column, center, center, 1rem);
+
+      .inputContainer {
+        @include m.flexBox(column, center, center, 1rem);
+        position: relative;
+      }
+
+      label {
+        align-self: flex-start;
+      }
+
+      input {
+        @extend %formInput;
+      }
+    }
+
+    .formFooter {
+      p {
+        max-width: 200px;
+        color: $sixty-five-transparent;
+
+        a {
+          color: $seventy-five-transparent;
+        }
+      }
+
+      input {
+        @extend %formSubmit;
+      }
     }
   }
 }

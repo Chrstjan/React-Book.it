@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import s from "./SignUpForm.module.scss";
+import { Icon } from "../Icon/Icon";
+import { Link } from "react-router-dom";
 
 export const SignUpForm = ({ headerText, subText }) => {
   const {
@@ -47,7 +49,7 @@ export const SignUpForm = ({ headerText, subText }) => {
         </header>
         <div>
           <label htmlFor="name">Name</label>
-          <span>
+          <span className={s.inputContainer}>
             <input
               {...register("name", {
                 required: "Name is required",
@@ -64,11 +66,12 @@ export const SignUpForm = ({ headerText, subText }) => {
               name="name"
               placeholder="Peter Jackson"
             />
+            <Icon src="./User.svg" type="small" />
             {errors.name ? <span>{errors.name.message}</span> : null}
           </span>
 
           <label htmlFor="email">Email</label>
-          <span>
+          <span className={s.inputContainer}>
             <input
               {...register("email", {
                 required: "Email is required",
@@ -85,11 +88,12 @@ export const SignUpForm = ({ headerText, subText }) => {
               name="email"
               placeholder="peter@mymail.com"
             />
+            <Icon src="./Circled Envelope.svg" type="small" />
             {errors.email ? <span>{errors.email.message}</span> : null}
           </span>
 
           <label htmlFor="password">Password</label>
-          <span>
+          <span className={s.inputContainer}>
             <input
               {...register("password", {
                 required: "password is required",
@@ -106,11 +110,12 @@ export const SignUpForm = ({ headerText, subText }) => {
               name="password"
               placeholder="********"
             />
+            <Icon src="./Lock.svg" type="small" />
             {errors.password ? <span>{errors.password.message}</span> : null}
           </span>
 
           <label htmlFor="phone">Phone</label>
-          <span>
+          <span className={s.inputContainer}>
             <input
               {...register("phone", {
                 required: "phone is required",
@@ -127,11 +132,17 @@ export const SignUpForm = ({ headerText, subText }) => {
               name="phone"
               placeholder="+45 55322323"
             />
+            <Icon src="./Phone.svg" type="small" />
             {errors.phone ? <span>{errors.phone.message}</span> : null}
           </span>
         </div>
-
-        <input type="submit" value="Sign up" />
+        <div className={s.formFooter}>
+          <p>
+            Already have an account? <Link to="/signin">Click here</Link> to
+            sign in
+          </p>
+          <input type="submit" value="Sign up" />
+        </div>
       </fieldset>
     </form>
   );

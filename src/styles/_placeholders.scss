@@ -1,0 +1,36 @@
+@use "./mixins" as m;
+@use "./variables" as *;
+
+%formFieldset {
+  @include m.flexBox(column, center, center, 2rem);
+  background: $white-color;
+  border-radius: 6px;
+  border: 0;
+  box-shadow: 2px 1px 3px $twenty-five-transparent;
+  padding: 1rem 2rem 1rem 2rem;
+
+  header {
+    color: $sixty-five-transparent;
+    h2 {
+      border-bottom: 2px solid $twenty-five-transparent;
+      padding-bottom: 0.5rem;
+      font-weight: 300;
+    }
+  }
+}
+
+%formInput {
+  border: 2px solid $twenty-five-transparent;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.2rem;
+  width: 50vw;
+}
+
+%formSubmit {
+  border: 0;
+  border-radius: 6px;
+  padding: 0.5rem 2.5rem;
+  width: 35vw;
+  color: $seventy-five-transparent;
+}

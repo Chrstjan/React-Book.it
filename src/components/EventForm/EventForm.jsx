@@ -3,6 +3,7 @@ import { Icon } from "../Icon/Icon";
 import s from "./EventForm.module.scss";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { ToastContainer, toast } from "react-toastify";
 
 export const EventForm = ({ endpoint, method, eventData, btnText }) => {
   const { user } = useContext(UserContext);
@@ -14,6 +15,8 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
   } = useForm({
     mode: "all",
   });
+
+  const notify = () => toast("Ticket created");
 
   const handleFormSubmit = async (data) => {
     console.log("Event data", data);
@@ -45,6 +48,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
     }
     const eventData = await res.json();
     console.log("Created Event Data", eventData);
+    notify();
   };
 
   return (
@@ -67,7 +71,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             id="title"
             name="title"
             placeholder="Malk de Koijn"
-            defaultValue={eventData.title ? eventData.title : null}
+            defaultValue={eventData?.title ? eventData?.title : null}
           />
           <Icon src="Pencil.svg" type="small" />
           {errors.title ? <span>{errors.title.message}</span> : null}
@@ -90,7 +94,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             id="location"
             name="location"
             placeholder="Trekanten"
-            defaultValue={eventData.location ? eventData.location : null}
+            defaultValue={eventData?.location ? eventData?.location : null}
           />
           <Icon src="Address.svg" type="small" />
           {errors.location ? <span>{errors.location.message}</span> : null}
@@ -113,7 +117,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             id="image"
             name="image"
             placeholder="https://www.imageofmalk..."
-            defaultValue={eventData.image ? eventData.image : null}
+            defaultValue={eventData?.image ? eventData?.image : null}
           />
           <Icon src="Image.svg" type="small" />
           {errors.image ? <span>{errors.image.message}</span> : null}
@@ -136,7 +140,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             id="time"
             name="time"
             placeholder="Kl. 22.00"
-            defaultValue={eventData.time ? eventData.time : null}
+            defaultValue={eventData?.time ? eventData?.time : null}
           />
           <Icon src="Clock.svg" type="small" />
           {errors.time ? <span>{errors.time.message}</span> : null}
@@ -159,7 +163,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             id="date"
             name="date"
             placeholder="14/11-2025"
-            defaultValue={eventData.date ? eventData.date : null}
+            defaultValue={eventData?.date ? eventData?.date : null}
           />
           <Icon src="Calendar.svg" type="small" />
           {errors.date ? <span>{errors.date.message}</span> : null}
@@ -179,12 +183,25 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
           })}
           id="description"
           name="description"
-          defaultValue={eventData.description ? eventData.description : null}
+          defaultValue={eventData?.description ? eventData?.description : null}
         ></textarea>
         <div className={s.formFooter}>
           <input type="submit" value={btnText} />
         </div>
       </fieldset>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Bounce
+      />
     </form>
   );
 };

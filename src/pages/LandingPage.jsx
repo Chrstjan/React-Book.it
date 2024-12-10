@@ -5,6 +5,7 @@ import { UserContext } from "../context/UserContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Event } from "../components/Event/Event";
+import { ToastContainer, toast } from "react-toastify";
 
 export const LandingPage = () => {
   const { user } = useContext(UserContext);
@@ -13,6 +14,8 @@ export const LandingPage = () => {
   const handleMonthClick = () => {
     console.log("lol");
   };
+
+  const notify = () => toast("Ticket deleted");
 
   const handleDeleteTicket = async (ticketID) => {
     if (user.accessToken) {
@@ -29,6 +32,7 @@ export const LandingPage = () => {
         setEvents((prevEvents) =>
           prevEvents.filter((event) => event.id !== ticketID)
         );
+        notify();
       }
     }
   };
@@ -66,10 +70,23 @@ export const LandingPage = () => {
         ) : (
           <h2>Welcome Guest</h2>
         )}
-        <Month text="Jan" action={() => handleMonthClick()} />
+        <Month action={() => handleMonthClick()} />
         {events.length > 0 ? (
           <Event data={events} action={handleDeleteTicket} />
         ) : null}
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition:Bounce
+        />
       </Wrapper>
     </>
   );

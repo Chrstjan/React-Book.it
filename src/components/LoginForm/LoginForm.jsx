@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import { Icon } from "../Icon/Icon";
+import { ToastContainer, toast } from "react-toastify";
 
 export const LoginForm = ({ headerText, subText }) => {
   const { user, loginUser } = useContext(UserContext);
@@ -16,6 +17,8 @@ export const LoginForm = ({ headerText, subText }) => {
   } = useForm({
     mode: "all",
   });
+
+  const notify = () => toast("Login successful");
 
   const handleFormSubmit = async (data) => {
     console.log(data);
@@ -45,12 +48,9 @@ export const LoginForm = ({ headerText, subText }) => {
 
     if (userData) {
       loginUser(userData);
+      notify();
     }
   };
-
-  useEffect(() => {
-    console.log("User context:", user);
-  }, [user]);
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={s.formStyling}>
@@ -111,6 +111,19 @@ export const LoginForm = ({ headerText, subText }) => {
           <input type="submit" value="Sign in" />
         </div>
       </fieldset>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Bounce
+      />
     </form>
   );
 };

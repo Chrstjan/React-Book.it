@@ -16,7 +16,7 @@ export const Event = ({ data, action }) => {
       <h2>Events this month</h2>
       {data?.map((item) => {
         return (
-          <div className={s.eventContainer}>
+          <div key={item.id} className={s.eventContainer}>
             <span className={s.event}>
               <p>{item.title}</p>
               <p>{item.location}</p>

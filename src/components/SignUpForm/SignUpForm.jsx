@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import s from "./SignUpForm.module.scss";
 import { Icon } from "../Icon/Icon";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export const SignUpForm = ({ headerText, subText }) => {
   const {
@@ -11,6 +12,8 @@ export const SignUpForm = ({ headerText, subText }) => {
   } = useForm({
     mode: "all",
   });
+
+  const notify = () => toast("Sign up successful");
 
   const handleFormSubmit = async (data) => {
     console.log(data);
@@ -39,6 +42,7 @@ export const SignUpForm = ({ headerText, subText }) => {
     }
     const userData = await res.json();
     console.log("User", userData);
+    notify();
   };
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={s.formStyling}>
@@ -144,6 +148,19 @@ export const SignUpForm = ({ headerText, subText }) => {
           <input type="submit" value="Sign up" />
         </div>
       </fieldset>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Bounce
+      />
     </form>
   );
 };

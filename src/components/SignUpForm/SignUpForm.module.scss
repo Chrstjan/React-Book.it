@@ -6,6 +6,10 @@
   @include m.flexBox(column, center, center, 1rem);
   margin: 0rem 1rem;
 
+  @media (min-width: 768px) {
+    margin: 0rem 9rem;
+  }
+
   fieldset {
     @extend %formFieldset;
 
@@ -27,9 +31,19 @@
     }
 
     .formFooter {
+      @include m.flexBox(column, center, center, 1rem);
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+
       p {
         max-width: 200px;
         color: $sixty-five-transparent;
+
+        @media (min-width: 768px) {
+          max-width: 300px;
+        }
 
         a {
           color: $seventy-five-transparent;

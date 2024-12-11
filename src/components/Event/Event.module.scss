@@ -7,7 +7,7 @@
   margin-left: 2rem;
 
   h2 {
-    text-align: center;
+    margin-left: 4rem;
   }
 
   .eventContainer {
@@ -15,7 +15,7 @@
     margin: 0rem 1rem 0rem 4rem;
     padding: 0rem 1.5rem 0rem 1rem;
     background: $white-color;
-    box-shadow: 2px 1px 2px #000;
+    filter: drop-shadow(6px 5px 4px $twenty-five-transparent);
     border-radius: 6px;
     max-width: 400px;
     min-width: 400px;
@@ -32,6 +32,10 @@
       p {
         border-right: 1px solid #000;
         padding-right: 0.5rem;
+
+        @media (min-width: 768px) {
+          font-size: 17.5px;
+        }
 
         &:last-of-type {
           border: 0;

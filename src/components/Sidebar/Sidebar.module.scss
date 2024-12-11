@@ -12,7 +12,7 @@
     height: 100vh;
     width: 7vw;
     padding: 2rem 2rem 0rem 2rem;
-    border-right: 1px solid #00000025;
+    filter: drop-shadow(2px 1px #00000011);
     z-index: 99;
 
     &.openStyling {
@@ -80,7 +80,7 @@
   height: 100vh;
   width: 11vw;
   padding: 1rem 0rem 0rem 1rem;
-  border-right: 1px solid #00000025;
+  filter: drop-shadow(2px 1px #00000011);
   z-index: 99;
 
   @media (min-width: 768px) {

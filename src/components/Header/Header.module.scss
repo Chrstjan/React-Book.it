@@ -6,6 +6,16 @@
   top: 0;
   right: 7%;
 
+  @media (min-width: 768px) {
+    top: 1%;
+  }
+
+  p {
+    @media (min-width: 768px) {
+      font-size: 22px;
+    }
+  }
+
   img {
     width: 15%;
   }

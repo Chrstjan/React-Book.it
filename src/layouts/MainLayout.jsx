@@ -14,8 +14,8 @@ export const MainLayout = () => {
         <Link to="/signin">
           <Icon src="./Test Account.svg" type="acountLink" />
         </Link>
-        <Icon src="Alarm.svg" />
-        <Icon src="Clock.svg" />
+        <Icon src="Alarm.svg" type="acountLink" />
+        <Icon src="Clock.svg" type="acountLink" />
         <Time />
       </Header>
       <Burgermenu setIsMenuOpen={setIsMenuOpen} />

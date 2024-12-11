@@ -9,12 +9,24 @@
   box-shadow: 2px 1px 3px $twenty-five-transparent;
   padding: 1rem 2rem 1rem 2rem;
 
+  @media (min-width: 768px) {
+    gap: 6.5rem;
+  }
+
   header {
     color: $sixty-five-transparent;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
     h2 {
       border-bottom: 2px solid $twenty-five-transparent;
       padding-bottom: 0.5rem;
       font-weight: 300;
+
+      @media (min-width: 768px) {
+        margin-left: 0rem;
+      }
     }
   }
 }
@@ -25,6 +37,15 @@
   outline: none;
   padding: 0.2rem;
   width: 50vw;
+
+  @media (min-width: 768px) {
+    padding: 0.5rem;
+    width: 40vw;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
 }
 
 %formSubmit {
@@ -33,4 +54,9 @@
   padding: 0.5rem 2.5rem;
   width: 35vw;
   color: $seventy-five-transparent;
+
+  @media (min-width: 768px) {
+    width: 15vw;
+    font-size: 17px;
+  }
 }

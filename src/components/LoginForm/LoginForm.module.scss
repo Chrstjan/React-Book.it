@@ -27,9 +27,20 @@
     }
 
     .formFooter {
+      @include m.flexBox(column, center, center, 1rem);
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+
       p {
         max-width: 150px;
         color: $sixty-five-transparent;
+
+        @media (min-width: 768px) {
+          max-width: 350px;
+          font-size: 19px;
+        }
 
         a {
           color: $seventy-five-transparent;

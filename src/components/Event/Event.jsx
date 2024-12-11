@@ -12,7 +12,7 @@ export const Event = ({ data, action, headerText }) => {
   };
 
   return (
-    <>
+    <section className={s.eventsContainer}>
       <h2>{headerText}</h2>
       {data?.map((item) => {
         return (
@@ -38,6 +38,6 @@ export const Event = ({ data, action, headerText }) => {
           </div>
         );
       })}
-    </>
+    </section>
   );
 };

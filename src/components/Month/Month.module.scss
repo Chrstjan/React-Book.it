@@ -6,6 +6,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
   div {
     padding: 1rem 0.5rem;
     text-align: center;

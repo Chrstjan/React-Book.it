@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "../Icon/Icon";
 import s from "./Event.module.scss";
 
-export const Event = ({ data, action }) => {
+export const Event = ({ data, action, headerText }) => {
   const navigate = useNavigate();
 
   const handleEditTicket = (ticketID) => {
@@ -13,7 +13,7 @@ export const Event = ({ data, action }) => {
 
   return (
     <>
-      <h2>Events this month</h2>
+      <h2>{headerText}</h2>
       {data?.map((item) => {
         return (
           <div key={item.id} className={s.eventContainer}>

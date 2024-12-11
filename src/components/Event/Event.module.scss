@@ -2,6 +2,10 @@
 @use "../../styles/variables" as *;
 @use "../../styles/placeholders";
 
+h2 {
+  text-align: center;
+}
+
 .eventContainer {
   @include m.flexBox(row, space-between, center, 0.7rem);
   margin: 0rem 1rem 0rem 4rem;

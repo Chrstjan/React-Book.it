@@ -10,12 +10,21 @@ import { ToastContainer, toast } from "react-toastify";
 export const LandingPage = () => {
   const { user } = useContext(UserContext);
   const [events, setEvents] = useState([]);
-
-  const handleMonthClick = () => {
-    console.log("lol");
-  };
+  const [monthEvents, setMonthEvents] = useState([]);
 
   const notify = () => toast("Ticket deleted");
+
+  const handleMonthClick = (date) => {
+    console.log(date);
+    if (events.length > 0) {
+      let clickedMonth = events.filter((eventDate) => {
+        // console.log(eventDate.date.slice(3, 5));
+        return eventDate.date.slice(3, 5) === date;
+      });
+      // console.log("Filtered month", clickedMonth);
+      setMonthEvents(clickedMonth);
+    }
+  };
 
   const handleDeleteTicket = async (ticketID) => {
     if (user.accessToken) {
@@ -44,22 +53,18 @@ export const LandingPage = () => {
           Authorization: "Bearer " + user.accessToken,
         },
       });
-      if (!res.ok) {
-        console.error(`Failed to fetch`);
-      } else {
-        console.log("Fetch", res);
-      }
       const data = await res.json();
       setEvents(data);
       return data;
     };
-    if (user != {}) {
+    if (user.accessToken) {
       getAllEvents();
     }
   }, [user]);
 
   useEffect(() => {
     console.log("Events!", events);
+    setMonthEvents(events);
   }, [events]);
 
   return (
@@ -70,10 +75,12 @@ export const LandingPage = () => {
         ) : (
           <h2>Welcome Guest</h2>
         )}
-        <Month action={() => handleMonthClick()} />
+        <Month action={handleMonthClick} />
         {events.length > 0 ? (
-          <Event data={events} action={handleDeleteTicket} />
-        ) : null}
+          <Event data={monthEvents} action={handleDeleteTicket} />
+        ) : (
+          <h2>No events found</h2>
+        )}
         <ToastContainer
           position="bottom-center"
           autoClose={5000}

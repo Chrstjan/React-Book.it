@@ -6,8 +6,9 @@
   background: $white-color;
   border-radius: 6px;
   border: 0;
-  box-shadow: 2px 1px 3px $twenty-five-transparent;
+  filter: drop-shadow(3px 3px 8px $twenty-five-transparent);
   padding: 1rem 2rem 1rem 2rem;
+  margin-bottom: 1rem;
 
   @media (min-width: 768px) {
     gap: 6.5rem;

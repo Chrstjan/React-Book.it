@@ -2,13 +2,24 @@
 
 .iconStyling {
   width: 100%;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     width: 5.5vw;
+    min-width: 5.5vw;
+    max-width: 5.5vw;
   }
 
   @media (min-width: 1280px) {
     width: 4vw;
+    min-width: 4vw;
+    max-width: 4vw;
+  }
+
+  @media (min-width: 1440px) {
+    width: 2.5vw;
+    min-width: 2.5vw;
+    max-width: 2.5vw;
   }
 
   &.flip {
@@ -28,10 +39,20 @@
 
     @media (min-width: 768px) {
       width: 5.5vw;
+      min-width: 5.5vw;
+      max-width: 5.5vw;
     }
 
     @media (min-width: 1280px) {
       width: 3.5vw;
+      min-width: 3.5vw;
+      max-width: 3.5vw;
+    }
+
+    @media (min-width: 1440px) {
+      width: 2.6vw;
+      min-width: 2.6vw;
+      max-width: 2.6vw;
     }
   }
 
@@ -43,10 +64,20 @@
 
     @media (min-width: 768px) {
       width: 4vw;
+      min-width: 4vw;
+      max-width: 4vw;
     }
 
     @media (min-width: 1280px) {
       width: 2.5vw;
+      min-width: 2.5vw;
+      max-width: 2.5vw;
+    }
+
+    @media (min-width: 1440px) {
+      width: 1.5vw;
+      min-width: 1.5vw;
+      max-width: 1.5vw;
     }
   }
 
@@ -58,10 +89,20 @@
 
     @media (min-width: 768px) {
       width: 3.7vw;
+      min-width: 3.7vw;
+      max-width: 3.7vw;
     }
 
     @media (min-width: 1280px) {
       width: 2.5vw;
+      min-width: 2.5vw;
+      max-width: 2.5vw;
+    }
+
+    @media (min-width: 1440px) {
+      width: 1.5vw;
+      min-width: 1.5vw;
+      max-width: 1.5vw;
     }
 
     &:first-of-type {

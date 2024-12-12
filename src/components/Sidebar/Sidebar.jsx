@@ -24,7 +24,7 @@ export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
           X
         </p>
       ) : null}
-      <span>
+      <span className={s.menuHeader}>
         <span onClick={() => openSidebar()} className={s.iconWrapper}>
           {isOpen ? <p>Close</p> : null}
           <Icon src="./Next page.svg" type={isOpen ? "flip" : ""} />

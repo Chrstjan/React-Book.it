@@ -6,6 +6,11 @@
   @include m.flexBox(column, center, center, 1rem);
   margin-left: 2rem;
 
+  @media (min-width: 1280px) {
+    margin-left: 0rem;
+    margin-right: 3.5rem;
+  }
+
   h2 {
     margin-left: 4rem;
   }
@@ -24,6 +29,12 @@
       max-width: 530px;
       min-width: 530px;
       padding: 0.5rem 1rem;
+    }
+
+    @media (min-width: 1280px) {
+      max-width: 799px;
+      min-width: 799px;
+      padding: 0.7rem 2rem;
     }
 
     .event {
@@ -45,6 +56,10 @@
 
     .iconContainer {
       @include m.flexBox(row, center, center, 0.5rem);
+
+      @media (min-width: 1280px) {
+        gap: 1rem;
+      }
     }
   }
 }

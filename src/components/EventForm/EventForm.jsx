@@ -170,21 +170,28 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
         </span>
 
         <label htmlFor="description">Description</label>
-        <textarea
-          {...register("description", {
-            required: "Description is required",
-            pattern: {
-              message: "Invalid description format",
-            },
-            minLength: {
-              value: 12,
-              message: "Description must be at least 12 characters",
-            },
-          })}
-          id="description"
-          name="description"
-          defaultValue={eventData?.description ? eventData?.description : null}
-        ></textarea>
+        <span className={s.inputContainer}>
+          <textarea
+            {...register("description", {
+              required: "Description is required",
+              pattern: {
+                message: "Invalid description format",
+              },
+              minLength: {
+                value: 12,
+                message: "Description must be at least 12 characters",
+              },
+            })}
+            id="description"
+            name="description"
+            defaultValue={
+              eventData?.description ? eventData?.description : null
+            }
+          ></textarea>
+          {errors.description ? (
+            <span>{errors.description.message}</span>
+          ) : null}
+        </span>
         <div className={s.formFooter}>
           <input type="submit" value={btnText} />
         </div>

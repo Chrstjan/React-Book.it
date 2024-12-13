@@ -4,6 +4,7 @@ import s from "./EventForm.module.scss";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { ToastContainer, toast } from "react-toastify";
+import { useEffect } from "react";
 
 export const EventForm = ({ endpoint, method, eventData, btnText }) => {
   const { user } = useContext(UserContext);
@@ -12,9 +13,14 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     mode: "all",
   });
+
+  useEffect(() => {
+    reset(eventData);
+  }, [eventData]);
 
   const notify = () => toast("Ticket created");
 

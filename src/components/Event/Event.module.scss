@@ -41,8 +41,9 @@
       @include m.flexBox(row, center, center, 1rem);
 
       p {
-        border-right: 1px solid #000;
+        border-right: 1px solid $seventy-five-transparent;
         padding-right: 0.5rem;
+        color: $seventy-five-transparent;
 
         @media (min-width: 768px) {
           font-size: 17.5px;

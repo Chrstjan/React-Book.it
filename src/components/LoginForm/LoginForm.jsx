@@ -18,7 +18,13 @@ export const LoginForm = ({ headerText, subText }) => {
     mode: "all",
   });
 
-  const notify = () => toast("Login successful");
+  const notify = (success) => {
+    if (success) {
+      toast("Login Successful!");
+    } else {
+      toast("Account not found, wrong password or email");
+    }
+  };
 
   const handleFormSubmit = async (data) => {
     console.log(data);
@@ -38,17 +44,18 @@ export const LoginForm = ({ headerText, subText }) => {
       },
       body: JSON.stringify(formData),
     });
-    if (res.ok) {
-      console.log(res);
-    } else {
-      console.error("Failed to login");
+    if (!res.ok) {
+      notify(false);
+      return;
     }
+
     const userData = await res.json();
-    console.log("User", userData);
 
     if (userData) {
       loginUser(userData);
-      notify();
+      notify(true);
+    } else {
+      notify(false);
     }
   };
 

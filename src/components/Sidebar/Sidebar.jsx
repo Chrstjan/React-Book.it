@@ -46,7 +46,9 @@ export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
         </span>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Settings</p> : null}
-          <Icon src="./Settings.svg" />
+          <Link to="/settings">
+            <Icon src="./Settings.svg" />
+          </Link>
         </span>
       </span>
       <span className={s.sidebarProfile}>

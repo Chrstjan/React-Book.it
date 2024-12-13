@@ -4,5 +4,6 @@ export const Paths = {
   signUp: "/signup",
   addEvent: "/add-event",
   editEvent: "/edit-event/:ticketID",
+  settings: "/settings",
   pageNotFound: "/*",
 };

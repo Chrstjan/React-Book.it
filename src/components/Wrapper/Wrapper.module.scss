@@ -12,9 +12,13 @@
     align-self: flex-start;
     margin-left: 3rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 607px) {
       font-size: 26px;
-      margin-left: 8.5rem;
+      margin-left: 7.8rem;
+    }
+
+    @media (min-width: 940px) {
+      margin-left: 10rem;
     }
 
     @media (min-width: 1280px) {

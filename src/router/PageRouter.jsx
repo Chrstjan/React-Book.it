@@ -8,6 +8,7 @@ import { SignUpPage } from "../pages/SignUpPage";
 import { SignInPage } from "../pages/SignInPage";
 import { AddEventPage } from "../pages/AddEventPage";
 import { EditEventPage } from "../pages/EditEventPage";
+import { SettingsPage } from "../pages/SettingsPage";
 
 export const PageRouter = () => {
   return (
@@ -21,6 +22,7 @@ export const PageRouter = () => {
       <Route path={Paths.home} element={<ProtectedLayout />}>
         <Route path={Paths.addEvent} element={<AddEventPage />} />
         <Route path={Paths.editEvent} element={<EditEventPage />} />
+        <Route path={Paths.settings} element={<SettingsPage />} />
       </Route>
     </Routes>
   );

@@ -4,7 +4,7 @@
   width: 100%;
   cursor: pointer;
 
-  @media (min-width: 768px) {
+  @media (min-width: 607px) {
     width: 5.5vw;
     min-width: 5.5vw;
     max-width: 5.5vw;
@@ -37,7 +37,7 @@
   &.acountLink {
     width: 8vw;
 
-    @media (min-width: 768px) {
+    @media (min-width: 607px) {
       width: 5.5vw;
       min-width: 5.5vw;
       max-width: 5.5vw;
@@ -62,7 +62,7 @@
     top: 10%;
     right: 4%;
 
-    @media (min-width: 768px) {
+    @media (min-width: 607px) {
       width: 4vw;
       min-width: 4vw;
       max-width: 4vw;
@@ -87,7 +87,7 @@
     background: $salmon-color;
     padding: 0.2rem 0.2rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 607px) {
       width: 3.7vw;
       min-width: 3.7vw;
       max-width: 3.7vw;

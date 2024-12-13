@@ -12,6 +12,7 @@ export const UserContextProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
+    console.log(":(");
     setUser({});
   };
 

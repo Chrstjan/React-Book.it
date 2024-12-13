@@ -12,10 +12,10 @@ export const MainLayout = () => {
     <>
       <Header>
         <Link to="/signin">
-          <Icon src="./Test Account.svg" type="acountLink" />
+          <Icon src="/Test Account.svg" type="acountLink" alt="Account icon" />
         </Link>
-        <Icon src="Alarm.svg" type="acountLink" />
-        <Icon src="Clock.svg" type="acountLink" />
+        <Icon src="/Alarm.svg" type="acountLink" alt="Alarm icon" />
+        <Icon src="/Clock.svg" type="acountLink" alt="Time icon" />
         <Time />
       </Header>
       <Burgermenu setIsMenuOpen={setIsMenuOpen} />

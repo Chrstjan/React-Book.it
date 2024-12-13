@@ -73,7 +73,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             placeholder="Malk de Koijn"
             defaultValue={eventData?.title ? eventData?.title : null}
           />
-          <Icon src="Pencil.svg" type="small" />
+          <Icon src="/Pencil.svg" type="small" alt="Pencil icon" />
           {errors.title ? <span>{errors.title.message}</span> : null}
         </span>
 
@@ -96,7 +96,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             placeholder="Trekanten"
             defaultValue={eventData?.location ? eventData?.location : null}
           />
-          <Icon src="Address.svg" type="small" />
+          <Icon src="/Address.svg" type="small" alt="Address icon" />
           {errors.location ? <span>{errors.location.message}</span> : null}
         </span>
 
@@ -119,7 +119,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             placeholder="https://www.imageofmalk..."
             defaultValue={eventData?.image ? eventData?.image : null}
           />
-          <Icon src="Image.svg" type="small" />
+          <Icon src="/Image.svg" type="small" alt="Image icon" />
           {errors.image ? <span>{errors.image.message}</span> : null}
         </span>
 
@@ -142,7 +142,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             placeholder="Kl. 22.00"
             defaultValue={eventData?.time ? eventData?.time : null}
           />
-          <Icon src="Clock.svg" type="small" />
+          <Icon src="/Clock.svg" type="small" alt="Time icon" />
           {errors.time ? <span>{errors.time.message}</span> : null}
         </span>
 
@@ -165,7 +165,7 @@ export const EventForm = ({ endpoint, method, eventData, btnText }) => {
             placeholder="14/11-2025"
             defaultValue={eventData?.date ? eventData?.date : null}
           />
-          <Icon src="Calendar.svg" type="small" />
+          <Icon src="/Calendar.svg" type="small" alt="Date icon" />
           {errors.date ? <span>{errors.date.message}</span> : null}
         </span>
 

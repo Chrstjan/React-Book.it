@@ -29,11 +29,13 @@ export const Event = ({ data, action, headerText }) => {
                   src="./Pencil.svg"
                   type="edit"
                   action={() => handleEditTicket(item.id)}
+                  alt="Edit icon"
                 />
                 <Icon
                   src="./Trash.svg"
                   type="edit"
                   action={() => action(item.id)}
+                  alt="Delete icon"
                 />
               </span>
             </div>

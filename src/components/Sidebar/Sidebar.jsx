@@ -27,7 +27,11 @@ export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
       <span className={s.menuHeader}>
         <span onClick={() => openSidebar()} className={s.iconWrapper}>
           {isOpen ? <p>Close</p> : null}
-          <Icon src="./Next page.svg" type={isOpen ? "flip" : ""} />
+          <Icon
+            src="/Next page.svg"
+            type={isOpen ? "flip" : ""}
+            alt="Sidebar arrow icon"
+          />
         </span>
         <hr />
       </span>
@@ -35,19 +39,19 @@ export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
         <span className={s.iconWrapper}>
           {isOpen ? <p>Home</p> : null}
           <Link to="/">
-            <Icon src="./Home.svg" />
+            <Icon src="/Home.svg" alt="Home icon" />
           </Link>
         </span>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Add event</p> : null}
           <Link to="/add-event">
-            <Icon src="./Plus.svg" />
+            <Icon src="/Plus.svg" alt="Create icon" />
           </Link>
         </span>
         <span className={s.iconWrapper}>
           {isOpen ? <p>Settings</p> : null}
           <Link to="/settings">
-            <Icon src="./Settings.svg" />
+            <Icon src="/Settings.svg" alt="Settings icon" />
           </Link>
         </span>
       </span>
@@ -55,7 +59,7 @@ export const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
         <span className={isOpen ? s.iconWrapper : ""}>
           {isOpen ? <p>Profile</p> : null}
           <Link to="/signin">
-            <Icon src="./Test Account.svg" />
+            <Icon src="/Test Account.svg" alt="Account icon" />
           </Link>
         </span>
       </span>
